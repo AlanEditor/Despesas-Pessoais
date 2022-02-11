@@ -9,11 +9,6 @@ class Despesa
         this.descricao = descricao
         this.valor = valor
     }
-
-    validarDados()
-    {
-
-    }
 }
 
 class Bd
@@ -141,6 +136,9 @@ let bd = new Bd()
 
 function cadastrarDispesa()
 {
+    //set the red color to modal
+    modalDanger()
+
     var ano = document.getElementById('ano')
     var mes = document.getElementById('mes')
     var dia = document.getElementById('dia')
@@ -157,7 +155,7 @@ function cadastrarDispesa()
     {
         bd.gravar(despesa)
 
-        //Alterando nomes e button do modal
+        //Change the text and classes from modal
         document.getElementById('modalTitulo').innerHTML = 'Registro inserido com sucesso'
         document.getElementById('modalTitulo').className = 'text-success'
         document.getElementById('modalMensagem').innerHTML = 'A despesa foi cadastrada com sucesso'
@@ -166,7 +164,8 @@ function cadastrarDispesa()
 
         $('#modalValidacao').modal('show') 
         
-        limparCampos()
+        limparCampos()        
+        
     }
     else
     {
@@ -174,7 +173,7 @@ function cadastrarDispesa()
         console.log(mes.value)    
     }
     
-    //limparCampos()
+    
 
 }
 
@@ -186,6 +185,15 @@ function limparCampos()
     document.getElementById('tipo').value = ''
     document.getElementById('descricao').value = ''
     document.getElementById('valor').value = ''
+
+    
+}
+
+function modalDanger()
+{
+    document.getElementById('modalTitulo').className = 'text-danger'
+    document.getElementById('btnModal').className = 'btn btn-danger'
+    
 }
 
 function validarCampos()
