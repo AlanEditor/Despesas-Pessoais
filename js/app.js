@@ -201,6 +201,7 @@ function validarCampos()
     //Alterando o titulo e o button
     document.getElementById('modalTitulo').innerHTML = 'Erro no Cadastro'
     document.getElementById('btnModal').innerText = 'Voltar e corrigir'
+    
     //Ano
     if(ano.value === '')
     { 
